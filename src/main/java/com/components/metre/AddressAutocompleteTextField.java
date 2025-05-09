@@ -206,7 +206,7 @@ public class AddressAutocompleteTextField extends TextField {
                     dados.put("bairro", suburb);
                     dados.put("cidade", city);
                     dados.put("estado", state);
-                    dados.put("endereco", fullAddress);
+                    dados.put("endereco", name);
                     dados.put("latitude", lat);
                     dados.put("longitude", lon);
                     mapDadosEnderecos.put(fullAddress, dados);
