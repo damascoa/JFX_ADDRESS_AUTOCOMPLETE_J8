@@ -59,7 +59,7 @@ public class AddressAutocompleteTextField extends TextField {
     private void setupEvents() {
         this.textProperty().addListener((obs, oldText, newText) -> {
             System.out.println("suppressListener "+suppressListener);
-            if (suppressListener) return;
+//            if (suppressListener) return;
             debounce.setOnFinished(event -> {
                 if (newText.length() > 3) {
                     fetchSuggestions(newText);
