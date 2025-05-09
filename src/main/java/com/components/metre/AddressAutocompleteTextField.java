@@ -148,6 +148,9 @@ public class AddressAutocompleteTextField extends TextField {
         this.positionCaret(selected.length());
         popup.hide();
 
+        // Libera após o ciclo do JavaFX terminar
+        Platform.runLater(() -> suppressListener = false);
+
         JSONObject dados = mapDadosEnderecos.get(selected);
         if (dados != null) {
             this.bairro = dados.optString("bairro");
