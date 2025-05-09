@@ -59,7 +59,6 @@ public class AddressAutocompleteTextField extends TextField {
     private void setupEvents() {
         this.textProperty().addListener((obs, oldText, newText) -> {
             System.out.println("suppressListener "+suppressListener);
-//            if (suppressListener) return;
             debounce.setOnFinished(event -> {
                 if (newText.length() > 3) {
                     fetchSuggestions(newText);
@@ -144,13 +143,10 @@ public class AddressAutocompleteTextField extends TextField {
     }
 
     private void applySelection(String selected) {
-        suppressListener = true;
         this.setText(selected);
         this.positionCaret(selected.length());
         popup.hide();
 
-        // Libera após o ciclo do JavaFX terminar
-        Platform.runLater(() -> suppressListener = false);
 
         JSONObject dados = mapDadosEnderecos.get(selected);
         if (dados != null) {
